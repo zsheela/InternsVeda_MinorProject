@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fruits & Vegetables</title>
+    <link rel="icon" href="./images/icon.png" type="image/png">
+    
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <img src="./images/logofinal.jpg" alt="Logo" height="100px" width="100px">
+        <ul>
+            <a href="#home"><li>Home</li></a>
+            <a href="#about"><li>About</li></a>
+            <a href="#products"><li>Products</li></a>
+            <a href="#contact"><li>Contact</li></a>
+        </ul>
+    </header>
+    <main>
+        <section id="home">
+            <h1>Welcome to FV Fruits and Vegetables</h1>
+            <h3>Your trusted source for the freshest, healthiest, and highest quality produce delivered straight to your doorstep.</h3>
+            <h2>Why Choose FV Fruits and Vegetables?</h2>
+            <p>At FV, we believe that everyone deserves access to the best that nature has to offer. That’s why we bring farm-fresh fruits and vegetables, harvested at peak ripeness, directly to your home. Whether you’re looking for organic produce, seasonal specials, or exotic options, we’ve got you covered.</p>
+
+            <h2>Our Promise</h2>
+            <h3>Freshness Guaranteed</h3>
+            <p>Our produce is sourced daily from trusted farms and growers to ensure the freshest quality. You’ll taste the difference with every bite.</p>
+
+            <h3>Organic & Sustainable</h3>
+            <p>We care about the environment and your health. That's why we offer a wide range of organic fruits and vegetables, grown with sustainable farming practices.</p>
+
+            <h3>Unmatched Variety</h3>
+            <p>From everyday essentials like apples and spinach to hard-to-find exotic fruits and vegetables, FV offers a diverse selection to meet your culinary needs.</p>
+        </section>
+
+        <section id="about">
+            <h2>About Us</h2>
+            <p>At FV Fruits and Vegetables, we are dedicated to bringing the freshest, highest-quality produce straight from local farms to your doorstep. Our journey began with a simple mission: to provide everyone access to healthy, nutritious food while supporting sustainable farming practices.</p>
+            
+            <h3>Our Mission</h3>
+            <p>Our mission is to connect consumers with the best fruits and vegetables available. We believe that everyone deserves to enjoy fresh, delicious produce that is grown with care for both the environment and the community. By sourcing directly from local farmers, we ensure that our customers receive only the finest products.</p>
+        
+            <h3>Our Values</h3>
+            <ul type="none">
+                <li><strong>Freshness:</strong> We guarantee that all our products are harvested at peak ripeness to ensure maximum flavor and nutrition.</li>
+                <li><strong>Quality:</strong> Our rigorous quality checks ensure that every piece of fruit and vegetable meets our high standards.</li>
+                <li><strong>Sustainability:</strong> We are committed to sustainable farming practices that protect the environment and promote biodiversity.</li>
+                <li><strong>Community Support:</strong> By partnering with local farmers, we contribute to the local economy and promote ethical sourcing.</li>
+            </ul>
+        
+            <h3>Why Choose Us?</h3>
+            <p>When you choose FV Fruits and Vegetables, you are choosing quality, freshness, and a commitment to sustainability. Our diverse selection includes organic produce, seasonal specials, and exotic options, ensuring that there’s something for everyone. We strive to minimize the time between harvest and your table, delivering produce that’s not only delicious but also nutritious.</p>
+        
+            <h3>Join Us on Our Journey</h3>
+            <p>We invite you to join us on our journey toward a healthier, more sustainable future. Explore our wide range of fruits and vegetables and discover the difference that fresh, quality produce can make in your meals. Together, let’s support local farmers and enjoy the best that nature has to offer!</p>
+        </section>
+        
+        <section id="products">
+            <h2>Products</h2>
+        
+            <div class="container" id="main-content">
+                <h1>Fruits and Vegetables</h1>
+                <div class="product-grid" id="product-grid"></div>
+            </div>
+        
+            <script>
+                const products = [
+                    {
+                        name: 'Fruits',
+                        image: 'images/fruit.jfif',
+                        items: [
+                            { name: 'Apples', image: 'images/apple.jfif' },
+                            { name: 'Bananas', image: 'images/bananas.jfif' },
+                            { name: 'Grapes', image: 'images/grapes.jfif' },
+                            { name: 'Berries', image: 'images/berries.jfif' },
+                            { name: 'Oranges', image: 'images/oranges.jfif' }
+                        ]
+                    },
+                    {
+                        name: 'Vegetables',
+                        image: 'images/veggies.jfif',
+                        items: [
+                            { name: 'Carrots', image: 'images/carrots.jfif' },
+                            { name: 'Spinach', image: 'images/spinach.jfif' },
+                            { name: 'Broccoli', image: 'images/broccoli.jfif' },
+                            { name: 'Peppers', image: 'images/peppers.jfif' },
+                            { name: 'Tomatoes', image: 'images/tomatoes.jfif' }
+                        ]
+                    }
+                ];
+        
+                function createProductCard(product) {
+                    return `
+                        <div class="product-card">
+                            <img src="${product.image}" alt="${product.name}" class="product-image">
+                            <div class="product-info">
+                                <h3 class="product-name">${product.name}</h3>
+                            </div>
+                            <div class="product-actions">
+                                <button onclick="showItemList('${product.name}')">View</button>
+                            </div>
+                        </div>
+                    `;
+                }
+        
+                function renderProducts() {
+                    const productGrid = document.getElementById('product-grid');
+                    productGrid.innerHTML = products.map(createProductCard).join('');
+                }
+        
+                function showItemList(productName) {
+                    const mainContent = document.getElementById('main-content');
+                    const product = products.find(p => p.name === productName);
+                    
+                    mainContent.innerHTML = `
+                        <button class="back-button" onclick="showHomePage()">Back to Home</button>
+                        <h2>${productName}</h2>
+                        <div class="item-grid">
+                            ${product.items.map(item => `
+                                <div class="item-card">
+                                    <img src="${item.image}" alt="${item.name}" class="item-image">
+                                    <h3>${item.name}</h3>
+                                    <div class="item-actions">
+                                        <button onclick="buyItem('${item.name}')">Buy Now</button>
+                                        <button onclick="addToCart('${item.name}')">AddToCart</button>
+                                    </div>
+                                </div>
+                            `).join('')}
+                        </div>
+                    `;
+                }
+        
+                function buyItem(itemName) {
+                    const quantity = prompt(`How many ${itemName} would you like to buy?`);
+                    if (quantity && !isNaN(quantity)) {
+                        const address = prompt("Please enter your delivery address:");
+                        if (address) {
+                            alert(`Thank you for purchasing ${quantity} ${itemName}(s). Your order will be delivered to: ${address}`);
+                        } else {
+                            alert("Order canceled. Address is required.");
+                        }
+                    } else {
+                        alert("Order canceled. Please enter a valid number of items.");
+                    }
+                }
+        
+                function addToCart(itemName) {
+                    alert(`${itemName} added to cart`);
+                }
+        
+                function showHomePage() {
+                    const mainContent = document.getElementById('main-content');
+                    mainContent.innerHTML = `
+                        <h1>Fruits and Vegetables</h1>
+                        <div class="product-grid" id="product-grid"></div>
+                    `;
+                    renderProducts();
+                }
+        
+                document.addEventListener('DOMContentLoaded', renderProducts);
+            </script>
+        </section>
+        
+
+   
+        <section id="contact">
+            <script>
+                function message(){
+                const username = document.getElementById('username').value;
+                
+                alert("We received your message.We will contact you shortly.")
+                }
+            </script>
+                <h2>Contact Us</h2>
+                <form >
+
+                    <label for="username">Name: <span style="color: red;">*</span></label>
+                    <input type="text" name="username" id="username" required> <br>
+
+                    <label for="email">Email: <span style="color: red;">*</span></label>
+                    <input type="email" name="email" id="email" required> <br>
+
+                    <label for="phone">Contact Number: <span style="color: red;">*</span></label>
+                    <input type="tel" name="phone" id="phone" required><br>
+
+                    <label for="msg">Message: <span style="color: red;">*</span></label>
+                    <textarea name="msg" id="msg" rows="4" required></textarea>
+
+                    <button type="submit" onclick="message()">Submit</button>
+
+                </form>
+
+        </section>
+
+    </main>
+
+    <footer>
+        <marquee>For more details please contact 7386112383</marquee>
+    </footer>
+</body>
+</html>

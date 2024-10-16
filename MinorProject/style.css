@@ -1,0 +1,226 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap');
+
+body {
+    margin: 0;
+    font-family: 'Poppins', sans-serif;
+    background-color: #f4f4f9;
+    color: #333;
+}
+
+header {
+    background-color: #2E8B57;
+    width: 100%;
+    height: 100px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 100px;
+}
+
+header ul {
+    display: flex;
+    gap: 35px;
+    font-size: larger;
+    color: white;
+    list-style: none;
+    margin: 0;
+    padding-right: 150px;
+}
+
+header ul a {
+    text-decoration: none;
+    color: white;
+    font-weight: 600;
+    transition: color 0.3s ease;
+}
+
+header ul a:hover {
+    color: #FFD700;
+}
+
+header ul a:active{
+    color: #333;
+    font-weight: bold;
+}
+
+header img {
+    height: 100px;
+}
+
+#home {
+    position: relative;
+    color: #013701;
+    text-shadow: 2px 5px 5px rgba(80, 79, 79, 0.7);
+    padding: 150px 20px 100px;
+    height: max-content;
+    background: linear-gradient(rgba(255, 255, 255, 0.5), rgba(255, 255, 255, 0.3)), url('./images/background.jfif');
+    background-size: cover;
+    
+    
+}
+
+#home::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(24, 154, 111, 0.5);
+    opacity: 0.5;
+    z-index: -1;
+}
+
+#home h1 {
+    font-size: 3rem;
+    font-weight: 600;
+}
+
+#home h3, #home h2 {
+    font-size: 1.5rem;
+    margin-bottom: 20px;
+}
+
+section {
+    padding: 60px 20px;
+    max-width: 1200px;
+    height: auto;
+    margin: 0 auto;
+    text-align: center;
+}
+
+section h2 {
+    font-size: 2rem;
+    margin-bottom: 20px;
+    color: #2E8B57;
+}
+
+section p {
+    font-size: 1.1rem;
+    line-height: 1.6;
+}
+
+button {
+    padding: 10px 20px;
+    background-color: #FFD700;
+    border: none;
+    border-radius: 5px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+button:hover {
+    background-color: #DAA520;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+form label {
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+form input[type="text"],
+form input[type="email"],
+form input[type="tel"],
+form textarea {
+    width: 100%;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 10px;
+    margin-bottom: 15px;
+}
+
+form textarea {
+    resize: none; 
+}
+
+footer {
+    background-color: #2E8B57;
+    padding: 20px;
+    text-align: center;
+    color: white;
+    position: relative;
+    bottom: 0;
+    width: 100%;
+    height: 10px;
+    position: fixed;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 2rem;
+}
+
+h1, h2 {
+    font-size: 2rem;
+    margin-bottom: 2rem;
+}
+
+.product-grid, .item-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1.5rem;
+}
+
+.product-card, .item-card {
+    background-color: white;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+    cursor: pointer;
+}
+
+.product-card:hover, .item-card:hover {
+    transform: translateY(-5px);
+}
+
+.product-image, .item-image {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+}
+
+.product-info, .item-info {
+    padding: 1rem;
+    color: #333;
+}
+
+.product-name, .item-name {
+    font-size: 1.2rem;
+    margin: 0 0 0.5rem 0;
+}
+
+.product-actions, .item-actions {
+    display: flex;
+    justify-content: space-between;
+    padding: 0.5rem 1rem;
+    background-color: #f0f0f0;
+}
+
+.product-actions button, .item-actions button, .back-button {
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: #6a0dad;
+    font-weight: bold;
+}
+
+.product-actions button:hover, .item-actions button:hover, .back-button:hover {
+    text-decoration: underline;
+}
+
+.back-button {
+    margin-bottom: 1rem;
+}
